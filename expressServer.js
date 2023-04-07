@@ -12,7 +12,7 @@ client.connect();
 
 app.get('/test', async (req, res) => {
     try {
-        res.json("hello world")
+        res.send("hello world")
     } catch (err){
         console.error(err)
         res.status(500).send('Not connected')

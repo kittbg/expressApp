@@ -6,7 +6,7 @@ selectButton.on('click', function(){
   var userInput = $("input").val()
 
 
-fetch('https://expressapp-odb7.onrender.com/api/music/albums')
+fetch('/api/music/albums')
   .then(response => response.json())
   .then(albums => {
       console.log(albums)
