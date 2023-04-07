@@ -6,7 +6,7 @@ selectButton.on('click', function(){
   var userInput = $("input").val()
 
 
-fetch('/api/music/albums')
+fetch(`/api/music/albums/album=${userInput}`)
   .then(response => response.json())
   .then(data => {
       console.log(data)
@@ -14,7 +14,7 @@ fetch('/api/music/albums')
       for (let i = 0; i < data.length; i++){
           let div = ('.connect');
           let artist = data[i];
-           newDiv.remove(),
+        
     
           let newDiv = $(`
               <div class="card border-danger mb-3 bg-dark-subtle" style="max-width: 18rem;">
