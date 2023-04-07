@@ -1,8 +1,10 @@
 const express = require('express');
+const cors = require('cors')
 const dotenv = require('dotenv');
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
+app.use(cors())
 app.use(express.json());
 const { Client } = require('pg');
 const client = new Client({connectionString: process.env.DATABASE_URL});
@@ -21,7 +23,7 @@ app.get('/test', async (req, res) => {
 app.get('/api/music/albums', async (req, res) => {
     try {
         const results = await client.query('SELECT * FROM albums');
-        res.send(results.rows)
+        res.json(results.rows)
     } catch (err){
         console.error(err)
         res.status(500).send('Internal Server Error')
