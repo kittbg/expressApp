@@ -1,7 +1,7 @@
-var selectButton = $(".dropbtn");
+var button = $("#submit");
 const div = $(".connect");
 
-selectButton.on('click', function(){
+button.on('click', function(){
   $(".connect").empty();
   var userInput = $("input").val()
 
@@ -12,7 +12,6 @@ fetch(`/api/music/albums/album=${userInput}`)
       console.log(data)
 
       for (let i = 0; i < data.length; i++){
-          let div = ('.connect');
           let artist = data[i];
         
     
