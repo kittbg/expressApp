@@ -8,6 +8,17 @@ const { Client } = require('pg');
 const client = new Client({connectionString: process.env.DATABASE_URL});
 client.connect();
 
+app.get('/', async (req, res) => {
+    try {
+        const results = await client.query('SELECT * FROM albums');
+        res.send(results.rows)
+    } catch (err){
+        console.error(err)
+        res.status(500).send('Internal Server Error')
+    }
+});
+
+
 app.get('/api/music/albums', async (req, res) => {
     try {
         const results = await client.query('SELECT * FROM albums');
