@@ -8,7 +8,7 @@ const { Client } = require('pg');
 const client = new Client({connectionString: process.env.DATABASE_URL});
 client.connect();
 
-app.get('/music/albums', async (req, res) => {
+app.get('/api/music/albums', async (req, res) => {
     try {
         const results = await client.query('SELECT * FROM albums');
         res.send(results.rows)
@@ -18,7 +18,7 @@ app.get('/music/albums', async (req, res) => {
     }
 });
 
-app.get('/music/artist', async (req, res)=>{
+app.get('/api/music/artist', async (req, res)=>{
     try {
         const result = await client.query('SELECT * FROM artist');
         res.send(results.rows)
