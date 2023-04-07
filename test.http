@@ -1,8 +1,8 @@
 ###
-GET http://localhost:3000/music/albums
+GET http://localhost:3000/api/music/albums
 
 ###
-POST http://localhost:3000/music/albums
+POST http://localhost:3000/api/music/albums
 Content-Type: application/json
 
 {
@@ -13,7 +13,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3000/music/albums/11
+PUT http://localhost:3000/api/music/albums/11
 Content-Type: application/json
 
 {
@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 
 ###
-PATCH http://localhost:3000/music/albums/11
+PATCH http://localhost:3000/api/music/albums/11
 Content-Type: application/json
 
 {

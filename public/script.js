@@ -6,31 +6,26 @@ button.on('click', function(){
   var userInput = $("input").val()
 
 
-fetch(`/api/music/albums/album=${userInput}`)
+fetch(`/api/music/albums/${userInput}`)
   .then(response => response.json())
   .then(data => {
       console.log(data)
 
       for (let i = 0; i < data.length; i++){
           let artist = data[i];
-        
     
           let newDiv = $(`
-              <div class="card border-danger mb-3 bg-dark-subtle" style="max-width: 18rem;">
-                  <div class="card-body text-danger">
-                  <h1 class="card-header">Search Results</h1>
-                  <div class="band" class="card-text">Band: ${artist.album}</div>
-                  <div class="year" class="card-text">Year: ${artist.year}</div>
-                  <div class="songs" class="card-text">Songs: ${artist.songs}</div>
-                  <a tabindex="0" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Episode List" data-bs-content="${episodes.join('\n')}" aria-describedby="popover6159">Episodes</a>
-                  </div>
-                 </div> 
+                  <div>${artist.album}</div>
+                  <div class="year">Year: ${artist.year}</div>
+                  <div class="songs">Songs: ${artist.songs}</div>
                  `)
           
                  div.append(newDiv) 
           }
         })
-
       })
 
-   
+   //   <h1>Search Results</h1>
+                //   <div class="band">Band: ${artist.album}</div>
+                //   <div class="year">Year: ${artist.year}</div>
+                //   <div class="songs">Songs: ${artist.songs}</div>

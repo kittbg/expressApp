@@ -30,10 +30,10 @@ app.get('/api/music/albums', async (req, res) => {
     }
 });
 
-app.get('/api/music/artist', async (req, res)=>{
+app.get('/api/music/albums/:albumName', async (req, res)=>{
     try {
-        const result = await client.query('SELECT * FROM artist');
-        res.send(results.rows)
+        const results = await client.query('SELECT * FROM albums WHERE album = $1', [req.params.albumName]);
+        res.json(results.rows)
     } catch (err) {
         res.status(500).send('Internal Server Error')
     }
