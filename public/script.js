@@ -1,8 +1,8 @@
 var selectButton = $(".dropbtn");
-// const div = $("result");
+const div = $(".connect");
 
 selectButton.on('click', function(){
-//   $("#results").empty();
+  $(".connect").empty();
   var userInput = $("input").val()
 
 
@@ -12,9 +12,10 @@ fetch('/api/music/albums')
       console.log(data)
 
       for (let i = 0; i < data.length; i++){
+          let div = ('.connect');
           let artist = data[i];
-          
-          
+           newDiv.remove(),
+    
           let newDiv = $(`
               <div class="card border-danger mb-3 bg-dark-subtle" style="max-width: 18rem;">
                   <div class="card-body text-danger">
