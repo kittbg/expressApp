@@ -1,0 +1,32 @@
+###
+GET http://localhost:3000/music/albums
+
+###
+POST http://localhost:3000/music/albums
+Content-Type: application/json
+
+{
+    "album": "Test album",
+    "year":  1994,
+    "songs": ["Rotten Apple, Second Song, Third Song"],
+    "artist_id": 1
+}
+
+###
+PUT http://localhost:3000/music/albums/11
+Content-Type: application/json
+
+{
+    "album": "Test album",
+    "year":  2023,
+    "songs": ["Overwrite this song, Second Song, Third Song"],
+    "artist_id": 1
+}
+
+###
+PATCH http://localhost:3000/music/albums/11
+Content-Type: application/json
+
+{
+    "album": "Change the album again"
+}
